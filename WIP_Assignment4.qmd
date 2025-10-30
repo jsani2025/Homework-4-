@@ -163,18 +163,17 @@ tibble_crime <- tbl (con, 'crime')
 
 tibble_11_year <- tibble_crime %>% 
   filter(district == 11, arrest == TRUE) %>%
-  group_by(primary_type) %>%
-  group_by(year) %>%          # grouped by 'primary_type' and 'year'
+  group_by(primary_type, year) %>%  # grouped by 'primary_type' and 'year'
   summarise(arrests = n()) %>%
   arrange (desc(year))
-head (tibble_11_year, 10)
+head (tibble_11_year)
 ```
 
 Assign the results of the query above to a local R object.
 
 ```{r}
 district11_local <- collect (tibble_11_year) 
-
+district11_local
 ```
 
 Confirm that you pulled the data to the local environment by displaying the first ten rows of the saved data set.
