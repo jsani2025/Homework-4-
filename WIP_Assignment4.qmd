@@ -143,6 +143,8 @@ Try to write the very same query, now using the `dbplyr` package. For this, you 
 
 Again, count the number of arrests grouped by `primary_type` of district 11 in year 2016, now using `dplyr` syntax.
 
+- As expected, the counts/results are the same as the previous question.
+
 ```{r}
 crime_tbl <- tbl (con, 'crime')
 
